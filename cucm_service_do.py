@@ -33,6 +33,7 @@ import os
 import sys
 import time
 
+# Escape codes for terminal text colors
 class bcolors:
     RESET = '\033[39m'
     HEADER = '\033[95m'
@@ -55,9 +56,9 @@ if len(sys.argv)<3:
 
 AXL_USERNAME = str(sys.argv[1])
 #Comment Out for Production
-AXL_PASSWORD = "C!sc0123"
+#AXL_PASSWORD = "C!sc0123"
 #Un-Comment for Production
-#AXL_PASSWORD = str(sys.argv[2]
+AXL_PASSWORD = str(sys.argv[2])
 
 # Get Service Name 
 SVC_NAME = str(sys.argv[3])
@@ -77,10 +78,6 @@ elif (SVC_ACTION =="Restart" or SVC_ACTION == "restart" or SVC_ACTION == "RESTAR
 else:
     sys.exit("Invalid Action.  Choices are Start, Stop, or Restart (default)")
     
-
-
-
-
 # Edit .env file to specify your Webex site/user details
 from dotenv import load_dotenv
 load_dotenv()
@@ -88,11 +85,8 @@ load_dotenv()
 # Set DEBUG=True in .env to enable output of request/response headers and XML
 DEBUG = os.getenv( 'DEBUG' ) == 'True'
 
-
 # The WSDL is a local file in the working directory, see README
 WSDL_FILE = './schema/ControlCenterServices.wsdl'
-
-# This class lets you view the incoming and outgoing HTTP headers and XML
 
 # This class lets you view the incoming and outgoing HTTP headers and XML
 class MyLoggingPlugin( Plugin ):
@@ -150,9 +144,8 @@ client = Client( WSDL_FILE, settings = settings, transport = transport, plugins 
 start_time=time.time()
 
 print('\nBeginning '+SVC_ACTION+' '+time.strftime("%H:%M:%S"))
-# Open file of UCM server addresses
-# Could use ENV filespec = os.getenv("UCM_FILE")
-# Hard coding for now.
+# Open file containing list of UCM server addresses
+
 filespec = './ucmlist.txt'
 with open(filespec, 'r') as ucmlist:
     # Execute requested action for each UCM server listed in the file
