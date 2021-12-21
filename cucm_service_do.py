@@ -78,7 +78,7 @@ elif (SVC_ACTION =="Restart" or SVC_ACTION == "restart" or SVC_ACTION == "RESTAR
 else:
     sys.exit("Invalid Action.  Choices are Start, Stop, or Restart (default)")
     
-# Edit .env file to specify your Webex site/user details
+# Edit .env file to specify environment variables
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -109,7 +109,7 @@ class MyLoggingPlugin( Plugin ):
 
         print( f'\nResponse\n-------\nHeaders:\n{http_headers}\n\nBody:\n{xml}' )
 
-# The first step is to create a SOAP client session
+# Create a SOAP client session
 
 session = Session()
 
@@ -125,7 +125,7 @@ requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.
 # CERT = 'changeme.pem'
 # session.verify = CERT
 
-#Uncomment if setting parameters in the environment
+#Uncomment if setting session auth parameters in the environment
 #session.auth = HTTPBasicAuth( os.getenv( 'AXL_USERNAME' ), os.getenv( 'AXL_PASSWORD' ) )
 #Comment out if using environment parameters
 session.auth = HTTPBasicAuth( AXL_USERNAME , AXL_PASSWORD)
