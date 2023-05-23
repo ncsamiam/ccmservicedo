@@ -9,7 +9,7 @@ isodate==0.6.0
 lxml==4.9.1
 python-dotenv==0.15.0
 pytz==2020.5
-requests==2.25.1
+requests==2.31.0
 requests-file==1.5.1
 requests-toolbelt==0.9.1
 six==1.15.0
