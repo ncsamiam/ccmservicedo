@@ -9,8 +9,8 @@
             "type": "python",
             "request": "launch",
             "program": "${file}",
-            "console": "integratedTerminal"
-            "args":["admin", "cisco123","Cisco Tftp"],
+            "console": "integratedTerminal",
+            "args" : ["admin", "C!sco123xx","Cisco Tftp"],
         }
     ]
 }
